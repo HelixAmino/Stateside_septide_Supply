@@ -792,42 +792,7 @@
     "best_source": "Viv",
     "best_price": 195
   },
-  {
-    "id": "CRY10|10mg",
-    "product": "CRY10",
-    "strength": "10mg",
-    "spec": "10mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 190,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "CRYSTAGEN",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 190
-  },
-  {
-    "id": "CRY20|20mg",
-    "product": "CRY20",
-    "strength": "20mg",
-    "spec": "20mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 350,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 350
-  },
+
   {
     "id": "Crystagen|10mg",
     "product": "Crystagen",
@@ -835,15 +800,15 @@
     "spec": "10mg*10vials",
     "prices": {
       "Viv": null,
-      "价格表": null,
+      "价格表": 190,
       "Direct Factory": 190
     },
     "codes": {
       "Viv": "",
-      "价格表": "",
+      "价格表": "CRYSTAGEN",
       "Direct Factory": "CRY10"
     },
-    "best_source": "Direct Factory",
+    "best_source": "价格表",
     "best_price": 190
   },
   {
@@ -853,12 +818,12 @@
     "spec": "20mg*10vials",
     "prices": {
       "Viv": 195,
-      "价格表": null,
+      "价格表": 350,
       "Direct Factory": 350
     },
     "codes": {
       "Viv": "CRYSTAGEN",
-      "价格表": "",
+      "价格表": "CRY20",
       "Direct Factory": "CRY20"
     },
     "best_source": "Viv",
