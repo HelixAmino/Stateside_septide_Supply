@@ -2713,15 +2713,15 @@
     "spec": "5mg*10vials",
     "prices": {
       "Viv": null,
-      "价格表": null,
+      "价格表": 350,
       "Direct Factory": 350
     },
     "codes": {
       "Viv": "",
-      "价格表": "",
+      "价格表": "PN5",
       "Direct Factory": "PN5"
     },
-    "best_source": "Direct Factory",
+    "best_source": "价格表",
     "best_price": 350
   },
   {
