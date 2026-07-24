@@ -1049,24 +1049,7 @@
     "best_source": "价格表",
     "best_price": 122
   },
-  {
-    "id": "FN1|1mg",
-    "product": "FN1",
-    "strength": "1mg",
-    "spec": "1mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 350,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "FOLLISTATIN",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 350
-  },
+
   {
     "id": "Follistatin|1mg",
     "product": "Follistatin",
@@ -1074,15 +1057,15 @@
     "spec": "1mg*10vials",
     "prices": {
       "Viv": 750,
-      "价格表": null,
+      "价格表": 350,
       "Direct Factory": 350
     },
     "codes": {
       "Viv": "FST-1/FST 344",
-      "价格表": "",
+      "价格表": "FN1",
       "Direct Factory": "FN1"
     },
-    "best_source": "Direct Factory",
+    "best_source": "价格表",
     "best_price": 350
   },
   {
