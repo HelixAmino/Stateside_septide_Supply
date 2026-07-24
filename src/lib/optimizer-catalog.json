@@ -557,42 +557,7 @@
     "best_source": "Direct Factory",
     "best_price": 138
   },
-  {
-    "id": "CAR10|10mg",
-    "product": "CAR10",
-    "strength": "10mg",
-    "spec": "10mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 210,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "CARDIOGEN",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 210
-  },
-  {
-    "id": "CAR20|20mg",
-    "product": "CAR20",
-    "strength": "20mg",
-    "spec": "20mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 420,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 420
-  },
+
   {
     "id": "Cardiogen|10mg",
     "product": "Cardiogen",
@@ -636,16 +601,16 @@
     "spec": "10mg*10vials",
     "prices": {
       "Viv": null,
-      "价格表": null,
+      "价格表": 210,
       "Direct Factory": 230
     },
     "codes": {
       "Viv": "",
-      "价格表": "",
+      "价格表": "CAR10",
       "Direct Factory": "CART10"
     },
-    "best_source": "Direct Factory",
-    "best_price": 230
+    "best_source": "价格表",
+    "best_price": 210
   },
   {
     "id": "Cartalax|20mg",
@@ -654,12 +619,12 @@
     "spec": "20mg*10vials",
     "prices": {
       "Viv": 240,
-      "价格表": null,
+      "价格表": 420,
       "Direct Factory": 390
     },
     "codes": {
       "Viv": "CART20",
-      "价格表": "",
+      "价格表": "CAR20",
       "Direct Factory": "CART20"
     },
     "best_source": "Viv",
