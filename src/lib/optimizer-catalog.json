@@ -3336,60 +3336,7 @@
     "best_source": "Direct Factory",
     "best_price": 500
   },
-  {
-    "id": "SUR10|10mg",
-    "product": "SUR10",
-    "strength": "10mg",
-    "spec": "10mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 990,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 990
-  },
-  {
-    "id": "SUR2|2mg",
-    "product": "SUR2",
-    "strength": "2mg",
-    "spec": "2mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 320,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "SURVODUTIDE",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 320
-  },
-  {
-    "id": "SUR5|5mg",
-    "product": "SUR5",
-    "strength": "5mg",
-    "spec": "5mg*10vials",
-    "prices": {
-      "Viv": null,
-      "价格表": 580,
-      "Direct Factory": null
-    },
-    "codes": {
-      "Viv": "",
-      "价格表": "",
-      "Direct Factory": ""
-    },
-    "best_source": "价格表",
-    "best_price": 580
-  },
+
   {
     "id": "Survodutide|10mg",
     "product": "Survodutide",
@@ -3397,12 +3344,12 @@
     "spec": "10mg*10vials",
     "prices": {
       "Viv": 700,
-      "价格表": null,
+      "价格表": 990,
       "Direct Factory": 990
     },
     "codes": {
       "Viv": "SUR10",
-      "价格表": "",
+      "价格表": "SUR10",
       "Direct Factory": "SUR10"
     },
     "best_source": "Viv",
@@ -3415,15 +3362,15 @@
     "spec": "2mg*10vials",
     "prices": {
       "Viv": null,
-      "价格表": null,
+      "价格表": 320,
       "Direct Factory": 320
     },
     "codes": {
       "Viv": "",
-      "价格表": "",
+      "价格表": "SUR2",
       "Direct Factory": "SUR2"
     },
-    "best_source": "Direct Factory",
+    "best_source": "价格表",
     "best_price": 320
   },
   {
@@ -3433,15 +3380,15 @@
     "spec": "5mg*10vials",
     "prices": {
       "Viv": null,
-      "价格表": null,
+      "价格表": 580,
       "Direct Factory": 580
     },
     "codes": {
       "Viv": "",
-      "价格表": "",
+      "价格表": "SUR5",
       "Direct Factory": "SUR5"
     },
-    "best_source": "Direct Factory",
+    "best_source": "价格表",
     "best_price": 580
   },
   {
