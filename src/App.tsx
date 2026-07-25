@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { ShoppingCart, Truck, HelpCircle, UserPlus, FileText } from "lucide-react";
+import { ShoppingCart, Truck, HelpCircle, UserPlus } from "lucide-react";
 import { ProductCatalog } from "./components/ProductCatalog";
 import { CartPanel } from "./components/CartPanel";
 import { HeroSection } from "./components/HeroSection";
@@ -127,15 +127,7 @@ function App() {
             </div>
           </div>
 
-          <a
-            href="https://redstoneanalytics.com/coa/RPT-2026-1196"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
-          >
-            <FileText className="w-4 h-4" />
-            <span className="hidden sm:inline">Sample COA</span>
-          </a>
+
 
           <button
             onClick={() => setPage("signup")}

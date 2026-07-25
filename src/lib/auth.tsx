@@ -93,7 +93,49 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    setSession(readStored());
+    const stored = readStored();
+    if (stored && stored.expires_at < Math.floor(Date.now() / 1000) + 60) {
+      const { url, key } = getEnv();
+      if (url && key && stored.refresh_token) {
+        (async () => {
+          try {
+            const res = await fetch(`${url}/auth/v1/token?grant_type=refresh_token`, {
+              method: "POST",
+              headers: { apikey: key, "Content-Type": "application/json" },
+              body: JSON.stringify({ refresh_token: stored.refresh_token }),
+            });
+            if (res.ok) {
+              const body = await res.json();
+              const next: Session = {
+                access_token: body.access_token,
+                refresh_token: body.refresh_token,
+                expires_at: Math.floor(Date.now() / 1000) + (body.expires_in ?? 3600),
+                user: {
+                  id: body.user.id,
+                  email: body.user.email,
+                  email_confirmed_at: body.user.email_confirmed_at,
+                },
+              };
+              persist(next);
+              setSession(next);
+            } else {
+              persist(null);
+              setSession(null);
+            }
+          } catch {
+            persist(null);
+            setSession(null);
+          }
+          setReady(true);
+        })();
+        return;
+      }
+      persist(null);
+      setSession(null);
+      setReady(true);
+      return;
+    }
+    setSession(stored);
     setReady(true);
   }, []);
 
