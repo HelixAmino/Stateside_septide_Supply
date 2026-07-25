@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { ShoppingCart, Truck, HelpCircle, UserPlus, ClipboardList } from "lucide-react";
+import { ShoppingCart, Truck, HelpCircle, UserPlus, FileText } from "lucide-react";
 import { ProductCatalog } from "./components/ProductCatalog";
 import { CartPanel } from "./components/CartPanel";
 import { HeroSection } from "./components/HeroSection";
@@ -11,6 +11,11 @@ import { useCart } from "./lib/cart";
 import { useAuth } from "./lib/auth";
 
 type Page = "home" | "faq" | "signup" | "optimizer";
+
+function getInitialPage(): Page {
+  if (window.location.pathname === "/optimizer") return "optimizer";
+  return "home";
+}
 
 function OptimizerGate({ onBack }: { onBack: () => void }) {
   const { session, signIn, ready } = useAuth();
@@ -79,7 +84,7 @@ function OptimizerGate({ onBack }: { onBack: () => void }) {
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
-  const [page, setPage] = useState<Page>("home");
+  const [page, setPage] = useState<Page>(getInitialPage);
   const cart = useCart();
   const catalogRef = useRef<HTMLDivElement>(null);
   const { verified, confirm: confirmAge } = useAgeVerified();
@@ -122,17 +127,15 @@ function App() {
             </div>
           </div>
 
-          <button
-            onClick={() => setPage("optimizer")}
-            className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
-              page === "optimizer"
-                ? "text-purple-300 bg-purple-500/10"
-                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
-            }`}
+          <a
+            href="https://redstoneanalytics.com/coa/RPT-2026-1196"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
           >
-            <ClipboardList className="w-4 h-4" />
-            <span className="hidden sm:inline">Optimizer</span>
-          </button>
+            <FileText className="w-4 h-4" />
+            <span className="hidden sm:inline">Sample COA</span>
+          </a>
 
           <button
             onClick={() => setPage("signup")}
