@@ -163,12 +163,12 @@ function App() {
             onClick={() => setPage("coa-library")}
             className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
               page === "coa-library"
-                ? "text-emerald-300 bg-emerald-500/10"
+                ? "text-purple-300 bg-purple-500/10"
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
             }`}
           >
             <FlaskConical className="w-4 h-4" />
-            <span className="hidden sm:inline">COA Library</span>
+            <span>COAs</span>
           </button>
 
           <button
