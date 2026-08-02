@@ -62,9 +62,9 @@ function CoaCard({ record }: { record: CoaRecord }) {
             <Clock className="w-3.5 h-3.5" />
             Coming Soon
           </div>
-        ) : record.has_pdf ? (
+        ) : (
           <a
-            href={`/coa/${record.rpt}.pdf`}
+            href={`https://redstoneanalytics.com/coa/${record.rpt}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-purple-600 text-white text-sm font-semibold hover:bg-purple-500 transition-colors shadow-lg shadow-purple-600/20"
@@ -72,11 +72,6 @@ function CoaCard({ record }: { record: CoaRecord }) {
             <ExternalLink className="w-3.5 h-3.5" />
             View COA
           </a>
-        ) : (
-          <div className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-slate-700/50 border border-slate-600/50 text-slate-400 text-sm font-medium">
-            <Clock className="w-3.5 h-3.5" />
-            COA Processing
-          </div>
         )}
       </div>
     </div>
