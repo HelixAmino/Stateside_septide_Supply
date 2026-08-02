@@ -149,7 +149,7 @@ function App() {
 
           <button
             onClick={() => setPage("signup")}
-            className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
+            className={`hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
               page === "signup"
                 ? "text-purple-300 bg-purple-500/10"
                 : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
