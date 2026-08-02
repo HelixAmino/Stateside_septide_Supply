@@ -1,19 +1,21 @@
-import { useState, useRef } from "react";
-import { ShoppingCart, Truck, HelpCircle, UserPlus, FileText } from "lucide-react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { ShoppingCart, Truck, HelpCircle, UserPlus, FileText, FlaskConical } from "lucide-react";
 import { ProductCatalog } from "./components/ProductCatalog";
 import { CartPanel } from "./components/CartPanel";
 import { HeroSection } from "./components/HeroSection";
 import { FaqPage } from "./components/FaqPage";
 import { MemberSignupForm } from "./components/MemberSignupForm";
 import { OrderOptimizer } from "./components/OrderOptimizer";
+import { CoaLibrary } from "./components/CoaLibrary";
 import { AgeGate, useAgeVerified } from "./components/AgeGate";
 import { useCart } from "./lib/cart";
 import { useAuth } from "./lib/auth";
 
-type Page = "home" | "faq" | "signup" | "optimizer";
+type Page = "home" | "faq" | "signup" | "optimizer" | "coa-library";
 
 function getInitialPage(): Page {
   if (window.location.pathname === "/optimizer") return "optimizer";
+  if (window.location.pathname === "/coa-library") return "coa-library";
   return "home";
 }
 
@@ -84,10 +86,26 @@ function OptimizerGate({ onBack }: { onBack: () => void }) {
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
-  const [page, setPage] = useState<Page>(getInitialPage);
+  const [page, setPageRaw] = useState<Page>(getInitialPage);
   const cart = useCart();
   const catalogRef = useRef<HTMLDivElement>(null);
   const { verified, confirm: confirmAge } = useAgeVerified();
+
+  const PAGE_PATHS: Record<Page, string> = { home: "/", faq: "/", signup: "/", optimizer: "/optimizer", "coa-library": "/coa-library" };
+  const PAGE_TITLES: Record<Page, string> = { home: "Stateside Peptide Supply", faq: "Stateside Peptide Supply", signup: "Stateside Peptide Supply", optimizer: "Order Optimizer | Stateside Peptide Supply", "coa-library": "COA Library | Stateside Peptide Supply" };
+
+  const setPage = useCallback((p: Page) => {
+    setPageRaw(p);
+    const path = PAGE_PATHS[p] || "/";
+    if (window.location.pathname !== path) window.history.pushState(null, "", path);
+    document.title = PAGE_TITLES[p] || "Stateside Peptide Supply";
+  }, []);
+
+  useEffect(() => {
+    const onPop = () => setPageRaw(getInitialPage());
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   if (!verified) {
     return <AgeGate onConfirm={confirmAge} />;
@@ -141,15 +159,17 @@ function App() {
             <span className="hidden sm:inline">Apply</span>
           </button>
 
-          <a
-            href="https://redstoneanalytics.com/coa/RPT-2026-1197"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+          <button
+            onClick={() => setPage("coa-library")}
+            className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl transition-colors ${
+              page === "coa-library"
+                ? "text-emerald-300 bg-emerald-500/10"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+            }`}
           >
-            <FileText className="w-4 h-4" />
-            <span className="hidden sm:inline">Sample COA</span>
-          </a>
+            <FlaskConical className="w-4 h-4" />
+            <span className="hidden sm:inline">COA Library</span>
+          </button>
 
           <button
             onClick={() => setPage("faq")}
@@ -193,6 +213,8 @@ function App() {
       {page === "signup" && <MemberSignupForm onBack={() => setPage("home")} />}
 
       {page === "optimizer" && <OptimizerGate onBack={() => setPage("home")} />}
+
+      {page === "coa-library" && <CoaLibrary />}
 
       {/* Floating cart button */}
       {cart.count > 0 && !cartOpen && (
